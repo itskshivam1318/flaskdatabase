@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Fatigue</title>
+</head>
+<body>
+<div>
+    <h1>Fatigue</h1>
+</div>
+<div>
+    <form action="{{url_for('Insert')}}" method="POST" >
+        <label>First Name</label>
+        <input type="text" name="first_name">
+        <br>
+        <label>Last Name</label>
+        <input type="text" name="last_name">
+        <br>
+        <label>Email Id</label>
+        <input type="text" name="email_id">
+        <br>
+        <label>Gender</label>
+        <input type="text" name="gender">
+        <br>
+        <label>Age</label>
+        <input type="text" name="age">
+        <br>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div>
+        <h3>{{message}}</h3>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
+</body>
+</html>
