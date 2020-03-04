@@ -38,8 +38,8 @@ def Insert():
 @app.route('/questions')
 def Questions():
     return render_template('questions.html')
-
-@app.route('insertques', methods=["POST"])
+'''
+@app.route('/insertques', methods=['POST'])
 def Insertques():
     if request.method == "POST":
         flash("Answer entered  Successfully")
@@ -71,7 +71,7 @@ def Insertques():
                     (fname, lname, email, gender, age))
         mysql.connection.commit()
         return redirect(url_for("Index"))
-
+'''
 
 if __name__ == "__main__":
     app.run(debug=True)
