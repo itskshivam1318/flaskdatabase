@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for, flash
 from flask_mysqldb import MySQL
+from blink import blink
 
 app = Flask(__name__)
 app.secret_key = "flash message"
@@ -15,6 +16,10 @@ mysql = MySQL(app)
 @app.route('/')
 def Index():
     return render_template('index.html')
+
+@app.route('/exit')
+def Exit():
+    return render_template('exit.html')
 
 
 @app.route('/insert', methods=['POST'])
@@ -35,43 +40,91 @@ def Insert():
         return redirect(url_for("Index"))
 
 
-@app.route('/questions')
-def Questions():
-    return render_template('questions.html')
-'''
-@app.route('/insertques', methods=['POST'])
-def Insertques():
+@app.route('/questions1')
+def Questions1():
+    blink1 = blink()
+    print(blink1)
+    return render_template('questions1.html')
+
+
+@app.route('/questions2')
+def Questions2():
+    return render_template('questions2.html')
+
+
+@app.route('/questions3')
+def Questions3():
+    return render_template('questions3.html')
+
+
+@app.route('/questions4')
+def Questions4():
+    return render_template('questions4.html')
+
+
+@app.route('/insertques1', methods=['POST'])
+def Insertques1():
     if request.method == "POST":
         flash("Answer entered  Successfully")
-
-        que1 = request.form['que1']
-        que2 = request.form['que2']
-        que3 = request.form['que3']
-        que4 = request.form['que4']
-        que5 = request.form['que5']
-        que6 = request.form['que6']
-        que7 = request.form['que7']
-        que8 = request.form['que8']
-        que9 = request.form['que9']
-        que10 = request.form['que10']
-        que11 = request.form['que11']
-        que12 = request.form['que12']
-        que13 = request.form['que13']
-        que14 = request.form['que14']
-        que15 = request.form['que15']
-        que16 = request.form['que16']
-        que17 = request.form['que17']
-        que18 = request.form['que18']
-        que19 = request.form['que19']
-        que20 = request.form['que20']
-
-
+        que1 = request.form['Question1']
+        que2 = request.form['Question2']
+        que3 = request.form['Question3']
+        que4 = request.form['Question4']
+        que5 = request.form['Question5']
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO ques(fname, lname, email, gender, age) VALUES (%s, %s , %s, %s, %s)",
-                    (fname, lname, email, gender, age))
+        cur.execute("INSERT INTO ques1(`que1`, `que2`, `que3`, `que4`, `que5`) VALUES (%s, %s , %s, %s, %s)",
+                    (que1, que2, que3, que4, que5))
         mysql.connection.commit()
-        return redirect(url_for("Index"))
-'''
+        return redirect(url_for("Questions1"))
+
+
+@app.route('/insertques2', methods=['POST'])
+def Insertques2():
+    if request.method == "POST":
+        flash("Answer entered  Successfully")
+        que1 = request.form['Question1']
+        que2 = request.form['Question2']
+        que3 = request.form['Question3']
+        que4 = request.form['Question4']
+        que5 = request.form['Question5']
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO ques2(`que6`, `que7`, `que8`, `que9`, `que10`) VALUES (%s, %s , %s, %s, %s)",
+                    (que1, que2, que3, que4, que5))
+        mysql.connection.commit()
+        return redirect(url_for("Questions2"))
+
+
+@app.route('/insertques3', methods=['POST'])
+def Insertques3():
+    if request.method == "POST":
+        flash("Answer entered  Successfully")
+        que1 = request.form['Question1']
+        que2 = request.form['Question2']
+        que3 = request.form['Question3']
+        que4 = request.form['Question4']
+        que5 = request.form['Question5']
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO ques3(`que11`, `que12`, `que13`, `que14`, `que15`) VALUES (%s, %s , %s, %s, %s)",
+                    (que1, que2, que3, que4, que5))
+        mysql.connection.commit()
+        return redirect(url_for("Questions3"))
+
+
+@app.route('/insertques4', methods=['POST'])
+def Insertques4():
+    if request.method == "POST":
+        flash("Answer entered  Successfully")
+        que1 = request.form['Question1']
+        que2 = request.form['Question2']
+        que3 = request.form['Question3']
+        que4 = request.form['Question4']
+        que5 = request.form['Question5']
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO ques4(`que16`, `que17`, `que18`, `que19`, `que20`) VALUES (%s, %s , %s, %s, %s)",
+                    (que1, que2, que3, que4, que5))
+        mysql.connection.commit()
+        return redirect(url_for("Questions4"))
+
 
 if __name__ == "__main__":
     app.run(debug=True)

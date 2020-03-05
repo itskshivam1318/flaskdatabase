@@ -1,0 +1,298 @@
+<html>
+<head>
+    <title>Fatigue</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<script>
+    function question1(checkbox) {
+    var checkboxes = document.getElementsByName('Question1')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+    function question2(checkbox) {
+    var checkboxes = document.getElementsByName('Question2')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+    function question3(checkbox) {
+    var checkboxes = document.getElementsByName('Question3')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+    function question4(checkbox) {
+    var checkboxes = document.getElementsByName('Question4')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+    function question5(checkbox) {
+    var checkboxes = document.getElementsByName('Question5')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+
+</script>
+<nav class="navbar navbar-dark bg-dark">
+    <span class="navbar-brand mx-auto h1">FATIGUE DETECTION</span>
+</nav>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success" role="alert">
+    {{message}}
+    <br>
+    <a href="/exit">Click to exit</a>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<br>
+<div class="container border border-dark mx-auto" style="width: 1200px  ">
+    <form action="{{url_for('Insertques4')}}" method="POST">
+        <br>
+        <div class="card">
+            <div class="card-header">
+                Question 16
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>How calm and peaceful do you feel right now?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question1" value="1"
+                               onclick="question1(this)">
+                        <label class="form-check-label">
+                            Not at all
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question1" value="2"
+                               onclick="question1(this)">
+                        <label class="form-check-label">
+                            A little
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question1" value="3"
+                               onclick="question1(this)">
+                        <label class="form-check-label">
+                            Moderately
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question1" value="4"
+                               onclick="question1(this)">
+                        <label class="form-check-label">
+                            Very
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question1" value="5"
+                               onclick="question1(this)">
+                        <label class="form-check-label">
+                            Extremely
+                        </label>
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-header">
+                Question 17
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>How easy would it be for you to concentrate on a puzzle right now?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question2" value="1"
+                               onclick="question2(this)">
+                        <label class="form-check-label">
+                            Not at all
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question2" value="2"
+                               onclick="question2(this)">
+                        <label class="form-check-label">
+                            A little
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question2" value="3"
+                               onclick="question2(this)">
+                        <label class="form-check-label">
+                            Moderately
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question2" value="4"
+                               onclick="question2(this)">
+                        <label class="form-check-label">
+                            Very
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question2" value="5"
+                               onclick="question2(this)">
+                        <label class="form-check-label">
+                            Extremely
+                        </label>
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-header">
+                Question 18
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p> How mentally sharp do you feel right now?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question3" value="1"
+                               onclick="question3(this)">
+                        <label class="form-check-label">
+                            Not at all
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question3" value="2"
+                               onclick="question3(this)">
+                        <label class="form-check-label">
+                            A little
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question3" value="3"
+                               onclick="question3(this)">
+                        <label class="form-check-label">
+                            Moderately
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question3" value="4"
+                               onclick="question3(this)">
+                        <label class="form-check-label">
+                            Very
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question3" value="5"
+                               onclick="question3(this)">
+                        <label class="form-check-label">
+                            Extremely
+                        </label>
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-header">
+                Question 19
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>How easy would it be for you to do something very physically active right now?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question4" value="1"
+                               onclick="question4(this)">
+                        <label class="form-check-label">
+                            Not at all
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question4" value="2"
+                               onclick="question4(this)">
+                        <label class="form-check-label">
+                            A little
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question4" value="3"
+                               onclick="question4(this)">
+                        <label class="form-check-label">
+                            Moderately
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question4" value="4"
+                               onclick="question4(this)">
+                        <label class="form-check-label">
+                            Very
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question4" value="5"
+                               onclick="question4(this)">
+                        <label class="form-check-label">
+                            Extremely
+                        </label>
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-header">
+                Question 20
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>How rested do you feel right now?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question5" value="1"
+                               onclick="question5(this)">
+                        <label class="form-check-label">
+                            Not at all
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question5" value="2"
+                               onclick="question5(this)">
+                        <label class="form-check-label">
+                            A little
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question5" value="3"
+                               onclick="question5(this)">
+                        <label class="form-check-label">
+                            Moderately
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question5" value="4"
+                               onclick="question5(this)">
+                        <label class="form-check-label">
+                            Very
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Question5" value="5"
+                               onclick="question5(this)">
+                        <label class="form-check-label">
+                            Extremely
+                        </label>
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+        <br>
+    </form>
+</div>
+<br>
+<footer class="text-light bg-dark">
+    <p>&copy; Created By <a href="https://github.com/itskshivam1318/" target="_blank">Harsh patel</a></p>
+</footer>
+</body>
+</html>

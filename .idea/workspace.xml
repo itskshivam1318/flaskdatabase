@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90ed59ad-1227-444b-acf0-360df6afad6f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/fatiguedata.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fatiguedata.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/exit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/questions1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/questions2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/questions3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/questions4.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/questions.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/questions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/questions.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +18,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="itskshivam1318 &lt;its.kshivam@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1Ycpe1t0S9RkMQqpU3pIn6w2uRE" />
@@ -25,17 +33,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="HTML" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\shiva\Desktop\flaskdatabase\templates" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fatiguedata" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -67,9 +78,33 @@
       <option name="presentableId" value="Default" />
       <updated>1583251828438</updated>
     </task>
+    <task id="LOCAL-00001" summary="commit 2">
+      <created>1583340742527</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583340742527</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit 2" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583375293822">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1583375293822" />
+    <state x="337" y="0" key="CommitChangelistDialog2" timestamp="1583340733853">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="337" y="0" key="CommitChangelistDialog2/0.0.1366.768/1366.0.1366.768@0.0.1366.768" timestamp="1583340733853" />
+    <state x="504" y="106" key="RollbackChangesDialog" timestamp="1583344585878">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="504" y="106" key="RollbackChangesDialog/0.0.1366.768/1366.0.1366.768@0.0.1366.768" timestamp="1583344585878" />
     <state x="184" y="26" key="SettingsEditor" timestamp="1583336578892">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
