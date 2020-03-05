@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90ed59ad-1227-444b-acf0-360df6afad6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/exit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/questions1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/questions2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/questions3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/questions4.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/questions.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +16,7 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1Ycpe1t0S9RkMQqpU3pIn6w2uRE" />
   <component name="ProjectViewState">
@@ -85,23 +78,47 @@
       <option name="project" value="LOCAL" />
       <updated>1583340742527</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="database done">
+      <created>1583375323569</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583375323569</updated>
+    </task>
+    <task id="LOCAL-00003" summary="database added">
+      <created>1583375466756</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1583375466756</updated>
+    </task>
+    <task id="LOCAL-00004" summary="check">
+      <created>1583375532746</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1583375532746</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit 2" />
+    <MESSAGE value="database done" />
+    <MESSAGE value="database added" />
+    <MESSAGE value="check" />
+    <option name="LAST_COMMIT_MESSAGE" value="check" />
   </component>
   <component name="WindowStateProjectService">
     <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583375293822">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1583375293822" />
-    <state x="337" y="0" key="CommitChangelistDialog2" timestamp="1583375465068">
+    <state x="337" y="0" key="CommitChangelistDialog2" timestamp="1583375530585">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="337" y="0" key="CommitChangelistDialog2/0.0.1366.768/1366.0.1366.768@0.0.1366.768" timestamp="1583340733853" />
-    <state x="337" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1583375465068" />
+    <state x="337" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1583375530585" />
     <state x="504" y="106" key="RollbackChangesDialog" timestamp="1583344585878">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -114,5 +131,9 @@
       <screen x="1366" y="0" width="1366" height="768" />
     </state>
     <state x="1744" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768/1366.0.1366.768@1366.0.1366.768" timestamp="1583336449795" />
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583375663982">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="492" y="301" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1583375663982" />
   </component>
 </project>
