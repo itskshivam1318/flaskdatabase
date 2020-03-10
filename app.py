@@ -1,8 +1,14 @@
 from flask import Flask, request, render_template, redirect, url_for, flash
 from flask_mysqldb import MySQL
-from blink import blink
+from flask_executor import Executor
+import detect
+import cv2
+import time
 
 app = Flask(__name__)
+
+executor = Executor(app)
+
 app.secret_key = "flash message"
 
 app.config['MYSQL_HOST'] = 'localhost'
@@ -11,6 +17,10 @@ app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'fatigue'
 
 mysql = MySQL(app)
+
+def blink1():
+    blink1 = detect.main()
+    return blink1
 
 
 @app.route('/')
@@ -26,39 +36,35 @@ def Exit():
 def Insert():
     if request.method == "POST":
         flash("User created Successfully")
-
         fname = request.form['first_name']
         lname = request.form['last_name']
         email = request.form['email_id']
         gender = request.form['gender']
         age = request.form['age']
-
         cur = mysql.connection.cursor()
         cur.execute("INSERT INTO users(fname, lname, email, gender, age) VALUES (%s, %s , %s, %s, %s)",
                     (fname, lname, email, gender, age))
         mysql.connection.commit()
         return redirect(url_for("Index"))
 
-
 @app.route('/questions1')
 def Questions1():
-    blink1 = blink()
-    print(blink1)
+    #executor.submit(blink1)
     return render_template('questions1.html')
-
 
 @app.route('/questions2')
 def Questions2():
+    executor.submit(blink1)
     return render_template('questions2.html')
-
 
 @app.route('/questions3')
 def Questions3():
+    executor.submit(blink1)
     return render_template('questions3.html')
-
 
 @app.route('/questions4')
 def Questions4():
+    executor.submit(blink1)
     return render_template('questions4.html')
 
 
@@ -71,10 +77,13 @@ def Insertques1():
         que3 = request.form['Question3']
         que4 = request.form['Question4']
         que5 = request.form['Question5']
+        blinks = blink1()
+        time.sleep(5)
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO ques1(`que1`, `que2`, `que3`, `que4`, `que5`) VALUES (%s, %s , %s, %s, %s)",
-                    (que1, que2, que3, que4, que5))
+        cur.execute("INSERT INTO ques1(`que1`, `que2`, `que3`, `que4`, `que5`,`blinks`) VALUES (%s, %s , %s, %s, %s, %s)",
+                    (que1, que2, que3, que4, que5, blinks))
         mysql.connection.commit()
+        cv2.destroyAllWindows()
         return redirect(url_for("Questions1"))
 
 
