@@ -1,9 +1,73 @@
 from flask import Flask, request, render_template, redirect, url_for, flash
 from flask_mysqldb import MySQL
 from flask_executor import Executor
-import detect
+from multiprocessing import Process
+from scipy.spatial import distance as dist
+from imutils.video import VideoStream
+from imutils import face_utils
+from detect import eye_aspect_ratio
+import imutils
+import dlib
 import cv2
 import time
+
+class processClass:
+    def __init__(self):
+        p = Process(target=self.run, args=())
+        p.daemon = True  # Daemonize it
+        p.start()
+
+    def eye_aspect_ratio(eye):
+        A = dist.euclidean(eye[1], eye[5])
+        B = dist.euclidean(eye[2], eye[4])
+        C = dist.euclidean(eye[0], eye[3])
+        ear = (A + B) / (2.0 * C)
+        return ear
+
+    def run(self):
+        EYE_AR_THRESH = 0.27
+        EYE_AR_CONSEC_FRAMES = 2
+        shape_predictor = "shape_predictor_68_face_landmarks.dat"
+        COUNTER = 0
+        TOTAL = 0
+        print("[INFO] loading facial landmark predictor...")
+        detector = dlib.get_frontal_face_detector()
+        predictor = dlib.shape_predictor(shape_predictor)
+        (lStart, lEnd) = face_utils.FACIAL_LANDMARKS_IDXS["left_eye"]
+        (rStart, rEnd) = face_utils.FACIAL_LANDMARKS_IDXS["right_eye"]
+        print("[INFO] starting video stream thread...")
+        print("[INFO] print q to quit...")
+        vs = VideoStream(src=0).start()
+        while True:
+            frame = vs.read()
+            frame = imutils.resize(frame, width=450)
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            rects = detector(gray, 0)
+            for rect in rects:
+                shape = predictor(gray, rect)
+                shape = face_utils.shape_to_np(shape)
+                leftEye = shape[lStart:lEnd]
+                rightEye = shape[rStart:rEnd]
+                leftEAR = eye_aspect_ratio(leftEye)
+                rightEAR = eye_aspect_ratio(rightEye)
+                ear = (leftEAR + rightEAR) / 2.0
+                leftEyeHull = cv2.convexHull(leftEye)
+                rightEyeHull = cv2.convexHull(rightEye)
+                cv2.drawContours(frame, [leftEyeHull], -1, (0, 255, 0), 1)
+                cv2.drawContours(frame, [rightEyeHull], -1, (0, 255, 0), 1)
+                if ear < EYE_AR_THRESH:
+                    COUNTER += 1
+                else:
+                    if COUNTER >= EYE_AR_CONSEC_FRAMES:
+                        TOTAL += 1
+                    COUNTER = 0
+                #cv2.putText(frame, "Blinks: {}".format(TOTAL), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                #cv2.putText(frame, "EAR: {:.2f}".format(ear), (300, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+            file = open('out.txt', 'w')
+            file.write(str(TOTAL))
+            file.close()
+            #cv2.imshow("Frame", frame)
+
 
 app = Flask(__name__)
 
@@ -18,9 +82,6 @@ app.config['MYSQL_DB'] = 'fatigue'
 
 mysql = MySQL(app)
 
-def blink1():
-    blink1 = detect.main()
-    return blink1
 
 
 @app.route('/')
@@ -29,6 +90,7 @@ def Index():
 
 @app.route('/exit')
 def Exit():
+    cv2.destroyAllWindows()
     return render_template('exit.html')
 
 
@@ -49,22 +111,19 @@ def Insert():
 
 @app.route('/questions1')
 def Questions1():
-    #executor.submit(blink1)
+    begin = processClass()
     return render_template('questions1.html')
 
 @app.route('/questions2')
 def Questions2():
-    executor.submit(blink1)
     return render_template('questions2.html')
 
 @app.route('/questions3')
 def Questions3():
-    executor.submit(blink1)
     return render_template('questions3.html')
 
 @app.route('/questions4')
 def Questions4():
-    executor.submit(blink1)
     return render_template('questions4.html')
 
 
@@ -77,11 +136,9 @@ def Insertques1():
         que3 = request.form['Question3']
         que4 = request.form['Question4']
         que5 = request.form['Question5']
-        blinks = blink1()
-        time.sleep(5)
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO ques1(`que1`, `que2`, `que3`, `que4`, `que5`,`blinks`) VALUES (%s, %s , %s, %s, %s, %s)",
-                    (que1, que2, que3, que4, que5, blinks))
+        cur.execute("INSERT INTO ques1(`que1`, `que2`, `que3`, `que4`, `que5`) VALUES (%s, %s , %s, %s, %s)",
+                    (que1, que2, que3, que4, que5))
         mysql.connection.commit()
         cv2.destroyAllWindows()
         return redirect(url_for("Questions1"))
@@ -128,9 +185,14 @@ def Insertques4():
         que3 = request.form['Question3']
         que4 = request.form['Question4']
         que5 = request.form['Question5']
+        fileread = open('out.txt', 'r')
+        dataread = fileread.readlines()
+        print(dataread)
+        data = str(dataread[0])
+        print(data)
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO ques4(`que16`, `que17`, `que18`, `que19`, `que20`) VALUES (%s, %s , %s, %s, %s)",
-                    (que1, que2, que3, que4, que5))
+        cur.execute("INSERT INTO ques4(`que16`, `que17`, `que18`, `que19`, `que20`,`blink`) VALUES (%s, %s , %s, %s, %s, %s)",
+                    (que1, que2, que3, que4, que5, data))
         mysql.connection.commit()
         return redirect(url_for("Questions4"))
 
