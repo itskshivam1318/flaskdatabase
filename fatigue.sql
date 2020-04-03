@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2020 at 03:30 AM
+-- Generation Time: Apr 03, 2020 at 09:16 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.32
 
@@ -41,7 +41,16 @@ CREATE TABLE `ques1` (
 --
 
 INSERT INTO `ques1` (`que1`, `que2`, `que3`, `que4`, `que5`) VALUES
-(2, 4, 3, 5, 1);
+(2, 4, 3, 5, 1),
+(1, 2, 3, 2, 1),
+(1, 2, 3, 2, 1),
+(1, 3, 2, 1, 2),
+(0, 0, 0, 0, 0),
+(2, 1, 1, 2, 1),
+(2, 1, 1, 2, 1),
+(2, 1, 1, 2, 1),
+(1, 3, 5, 5, 5),
+(1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -62,7 +71,10 @@ CREATE TABLE `ques2` (
 --
 
 INSERT INTO `ques2` (`que6`, `que7`, `que8`, `que9`, `que10`) VALUES
-(1, 4, 3, 3, 5);
+(1, 4, 3, 3, 5),
+(1, 2, 2, 4, 3),
+(2, 5, 1, 4, 5),
+(1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -83,7 +95,9 @@ CREATE TABLE `ques3` (
 --
 
 INSERT INTO `ques3` (`que11`, `que12`, `que13`, `que14`, `que15`) VALUES
-(1, 5, 2, 4, 2);
+(1, 5, 2, 4, 2),
+(5, 5, 5, 5, 5),
+(1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -96,15 +110,20 @@ CREATE TABLE `ques4` (
   `que17` int(11) NOT NULL,
   `que18` int(11) NOT NULL,
   `que19` int(11) NOT NULL,
-  `que20` int(11) NOT NULL
+  `que20` int(11) NOT NULL,
+  `blink` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ques4`
 --
 
-INSERT INTO `ques4` (`que16`, `que17`, `que18`, `que19`, `que20`) VALUES
-(3, 5, 1, 2, 3);
+INSERT INTO `ques4` (`que16`, `que17`, `que18`, `que19`, `que20`, `blink`) VALUES
+(3, 5, 1, 2, 3, 0),
+(1, 1, 1, 1, 1, 0),
+(1, 1, 1, 1, 1, 0),
+(1, 1, 1, 1, 1, 0),
+(1, 1, 1, 1, 1, 21);
 
 -- --------------------------------------------------------
 
@@ -130,7 +149,12 @@ INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `gender`, `age`) VALUES
 (2, 'ramesh ', 'kale', 'rameshkale@gmail.com', 'male', 22),
 (3, 'shravani', 'kamat', 'shravanikamat@gmail.com', 'female', 22),
 (4, 'tamish', 'sawant', 'tamishsawant@gmail.com', 'male', 22),
-(5, 'dhaval', 'shah', 'dhavalshah@gmail.com', 'male', 22);
+(5, 'dhaval', 'shah', 'dhavalshah@gmail.com', 'male', 22),
+(6, 'shivam', 'k', 'shivamk@gmail.comm', 'male', 22),
+(7, 'qwqw', 'www', 'qwd@sd.com', 'male', 0),
+(8, '12', '12', '12@gmail.com', 'female', 0),
+(9, 'shivam', 'k', 'sk@gmail.com', 'male', 22),
+(10, 'shivam', 'kharje', 'shivamkharje123@gmail.com', 'male', 22);
 
 --
 -- Indexes for dumped tables
@@ -150,7 +174,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
