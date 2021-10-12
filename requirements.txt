@@ -4,4 +4,4 @@ dlib==19.7.0
 imutils==0.5.3
 Flask==1.1.1
 Flask_Executor==0.9.3
-opencv_python==4.1.2.30
+opencv_python==4.2.0.32
